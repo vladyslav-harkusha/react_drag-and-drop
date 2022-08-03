@@ -3,32 +3,23 @@ import { Link, NavLink } from 'react-router-dom';
 import '../styles/NavBar.scss';
 
 export const NavBar: FC = () => {
+  const navbarLinks = ['Sort_Cards', 'Task_Board', 'Drop_Files'];
+
   return (
     <div className='navbar'>
       <div className='navbar__logo'>Drug&Drop</div>
 
       <ul className='navbar__links'>
-        <li className='navbar__item'>
-          <NavLink 
-            to="/react_drag-and-drop/sort_cards" 
-            className={({ isActive }) => "navbar__link" + (isActive ? "--is-active" : "")}
-          >
-            Sort Cards
-          </NavLink>
-        </li>
-
-        <li className='navbar__item'>
-          <NavLink 
-            to="/react_drag-and-drop/xx_page"
-            className={({ isActive }) => "navbar__link" + (isActive ? "--is-active" : "")}
-          >
-            Sort Cards
-          </NavLink>
-        </li>
-
-        <li className='navbar__item'>
-          <Link to="/react_d">Sort Cards</Link>
-        </li>
+        {navbarLinks.map((link, index) => 
+          <li className='navbar__item' key={index}>
+            <NavLink
+              to={`/react_drag-and-drop/${link}`}
+              className={({ isActive }) => "navbar__link" + (isActive ? "--is-active" : "")}
+            >
+              {link}
+            </NavLink>
+          </li>
+        )}
       </ul>
     </div>
   )

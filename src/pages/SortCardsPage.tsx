@@ -73,7 +73,7 @@ export const SortCardsPage: FC = () => {
         )}
       </div>
     </div>
-  )
+  );
 };
 
 

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-export const XXPage: FC = () => {
+export const TaskBoardPage: FC = () => {
   return (
     <div>XXPage</div>
-  )
+  );
 };
