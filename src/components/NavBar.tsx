@@ -8,7 +8,7 @@ export const NavBar: FC = () => {
       <div className='navbar__logo'>Drug&Drop</div>
 
       <ul className='navbar__links'>
-        <li className='navbar__link'>
+        <li className='navbar__item'>
           <NavLink 
             to="/react_drag-and-drop/sort_cards" 
             className={({ isActive }) => "navbar__link" + (isActive ? "--is-active" : "")}
@@ -17,7 +17,7 @@ export const NavBar: FC = () => {
           </NavLink>
         </li>
 
-        <li className='navbar__link'>
+        <li className='navbar__item'>
           <NavLink 
             to="/react_drag-and-drop/xx_page"
             className={({ isActive }) => "navbar__link" + (isActive ? "--is-active" : "")}
@@ -26,7 +26,7 @@ export const NavBar: FC = () => {
           </NavLink>
         </li>
 
-        <li className='navbar__link'>
+        <li className='navbar__item'>
           <Link to="/react_d">Sort Cards</Link>
         </li>
       </ul>
