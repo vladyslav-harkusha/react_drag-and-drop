@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../styles/NavBar.scss';
 
 export const NavBar: FC = () => {
@@ -14,7 +14,7 @@ export const NavBar: FC = () => {
           <li className='navbar__item' key={index}>
             <NavLink
               to={`/react_drag-and-drop/${link}`}
-              className={({ isActive }) => "navbar__link" + (isActive ? "--is-active" : "")}
+              className={({ isActive }) => "navbar__link " + (isActive ? "is-active" : "")}
             >
               {link}
             </NavLink>

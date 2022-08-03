@@ -2,6 +2,8 @@ import { FC } from 'react';
 
 export const TaskBoardPage: FC = () => {
   return (
-    <div>XXPage</div>
+    <div className='task-board-page'>
+      XXPage
+    </div>
   );
 };
