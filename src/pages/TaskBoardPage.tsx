@@ -42,7 +42,7 @@ export const TaskBoardPage: FC = () => {
 
   const dragEndHandler = (event: React.DragEvent<HTMLDivElement>) => {
     const eventTarget = event.target as HTMLDivElement;
-    eventTarget.style.boxShadow = 'none'
+    eventTarget.style.boxShadow = 'none';
   };
 
 
@@ -54,6 +54,9 @@ export const TaskBoardPage: FC = () => {
 
     const dropIndex = board.items.indexOf(item);
     board.items.splice(dropIndex + 1, 0, currentItem);
+
+    const eventTarget = event.target as HTMLDivElement;
+    eventTarget.style.boxShadow = 'none';
 
     setBoards(boards.map(b => {
       if (b.id === board.id) {
@@ -70,9 +73,11 @@ export const TaskBoardPage: FC = () => {
 
   const dropCardHandler = (event: React.DragEvent<HTMLDivElement>, board: Board,) => {
     const currentIndex = currentBoard.items.indexOf(currentItem);
-    currentBoard.items.splice(currentIndex, 1);
 
-    board.items.push(currentItem);
+    if (!board.items[0]) {
+      currentBoard.items.splice(currentIndex, 1);
+      board.items.push(currentItem);
+    }
 
     setBoards(boards.map(b => {
       if (b.id === board.id) {
@@ -85,7 +90,7 @@ export const TaskBoardPage: FC = () => {
 
       return b;
     }));
-  }
+  };
 
   return (
     <div className='task-board-page'>
