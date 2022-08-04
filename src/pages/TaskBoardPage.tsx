@@ -92,33 +92,58 @@ export const TaskBoardPage: FC = () => {
     }));
   };
 
+  const clearDoneTodos = () => {
+    setBoards(boards.map(b => {
+      if (b.title === 'Done') {
+        b.items.splice(0, b.items.length);
+
+        return b;
+      }
+
+      return b;
+    }))
+  }
+
   return (
     <div className='task-board-page'>
-      {boards.map(board => 
-        <div 
-          key={board.id} 
-          className="board"
-          onDragOver={(event) => dragOverHandler(event)}
-          onDrop={(event) => dropCardHandler(event, board)}
+      <div className='task-board-page__buttons'>
+        <button className='task-board-page__button'>Add new todo</button>
 
+        <button
+          className='task-board-page__button'
+          onClick={() => clearDoneTodos()}
         >
-            <div className="board__title" draggable={true}>{board.title}</div>
-            {board.items.map(item =>
-              <div 
-                key={item.id} 
-                className="board__item"
-                draggable={true}
-                onDragOver={(event) => dragOverHandler(event)}
-                onDragLeave={(event) => dragLeaveHandler(event)}
-                onDragStart={(event) => dragStartHandler(event, board, item)}
-                onDragEnd={(event) => dragEndHandler(event)}
-                onDrop={(event) => dropHandler(event, board, item)}
-              >
-                {item.title}
-              </div>
-            )}
-        </div>
-      )}
+          Clear all done todos
+        </button>
+      </div>
+
+      <div className='task-board-page__container'>
+        {boards.map(board =>
+          <div
+            key={board.id}
+            className="board"
+            onDragOver={(event) => dragOverHandler(event)}
+            onDrop={(event) => dropCardHandler(event, board)}
+          >
+              <div className="board__title">{board.title}</div>
+              
+              {board.items.map(item =>
+                <div
+                  key={item.id}
+                  className="board__item"
+                  draggable={true}
+                  onDragOver={(event) => dragOverHandler(event)}
+                  onDragLeave={(event) => dragLeaveHandler(event)}
+                  onDragStart={(event) => dragStartHandler(event, board, item)}
+                  onDragEnd={(event) => dragEndHandler(event)}
+                  onDrop={(event) => dropHandler(event, board, item)}
+                >
+                  {item.title}
+                </div>
+              )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

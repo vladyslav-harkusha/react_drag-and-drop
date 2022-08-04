@@ -1,0 +1,26 @@
+.drop-files-page {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.drop-area {
+  width: 80vw;
+  height: calc(80vh - 60px);
+  box-shadow: inset 4px 4px 16px 8px rgba(0, 95, 59, 0.849);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.drag-area {
+  padding: 20px 10px;
+  box-shadow: 2px 2px 8px 4px rgba(0, 95, 59, 0.849);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
