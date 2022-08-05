@@ -6,9 +6,9 @@ import { title } from 'process';
 
 export const TaskBoardPage: FC = () => {
   const [boards, setBoards] = useState<Board[]>([
-    { id: 1, title: 'To do', items: [{ id: 1, title: 'Go shopping' }, { id: 2, title: 'Take out the trash' }, { id: 3, title: 'Get breakfast' }]},
-    { id: 2, title: 'To check', items: [{ id: 4, title: 'Code review' }, { id: 5, title: 'Task factorial' }, { id: 6, title: 'Task fibonacci' }]},
-    { id: 3, title: 'Done', items: [{ id: 7, title: 'Make video' }, { id: 8, title: 'Mount video' }, { id: 9, title: 'Render video' }]},
+    { id: 1, title: 'To do', items: [{ id: 1, title: 'Go shopping' }, { id: 2, title: 'Create todo app' }, { id: 3, title: 'Get lunch' }, { id: 10, title: 'Take a shower' }]},
+    { id: 2, title: 'To check', items: [{ id: 4, title: 'Code review' }, { id: 5, title: 'New app' }, { id: 6, title: 'Task fibonacci' }]},
+    { id: 3, title: 'Done', items: [{ id: 7, title: 'Sports training' }, { id: 8, title: 'Buy a laptop' }, { id: 9, title: 'Go swim' }]},
   ]);
   const [currentBoard, setCurrentBoard] = useState<Board>(boards[0]);
   const [currentItem, setCurrentItem] = useState<Item>(boards[0].items[0]);
