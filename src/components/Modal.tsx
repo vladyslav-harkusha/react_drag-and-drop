@@ -1,15 +1,13 @@
 import React, { FC, useState } from 'react';
 import '../styles/Modal.scss';
-import { Board } from '../models';
 
 interface ModalProps {
   title: string;
   isModalHandler: () => void;
-  boards: Board[];
   addNewTodo: (titleTodo: string) => void;
 }
 
-export const Modal: FC<ModalProps> = ({ isModalHandler, title, boards, addNewTodo }) => {
+export const Modal: FC<ModalProps> = ({ isModalHandler, title, addNewTodo }) => {
   const [titleTodo, setTitleTodo] = useState('');
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {

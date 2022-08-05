@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react';
 import { Modal } from '../components/Modal';
 import '../styles/TaskBoardPage.scss';
 import { Board, Item } from '../models';
-import { title } from 'process';
 
 export const TaskBoardPage: FC = () => {
   const [boards, setBoards] = useState<Board[]>([
@@ -132,6 +131,8 @@ export const TaskBoardPage: FC = () => {
         </button>
       </div>
 
+      <p className='task-board-page__about'>You can drag and drop todos from one board to another</p>
+
       <div className='task-board-page__container'>
         {boards.map(board =>
           <div
@@ -164,7 +165,6 @@ export const TaskBoardPage: FC = () => {
         <Modal 
           title='Add a new todo' 
           isModalHandler={isModalHandler} 
-          boards={boards}
           addNewTodo={addNewTodo}
         />
       }
