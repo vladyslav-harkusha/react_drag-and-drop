@@ -1,16 +1,7 @@
 import React, { FC, useState } from 'react';
+import { Modal } from '../components/Modal';
 import '../styles/TaskBoardPage.scss';
-
-interface Item {
-  id: number;
-  title: string;
-}
-
-interface Board {
-  id: number;
-  title: string;
-  items: Item[];
-}
+import { Board, Item } from '../models';
 
 export const TaskBoardPage: FC = () => {
   const [boards, setBoards] = useState<Board[]>([
@@ -20,6 +11,7 @@ export const TaskBoardPage: FC = () => {
   ]);
   const [currentBoard, setCurrentBoard] = useState<Board>(boards[0]);
   const [currentItem, setCurrentItem] = useState<Item>(boards[0].items[0]);
+  const [isModal, setIsModal] = useState<boolean>(false);
 
   const dragOverHandler = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -104,10 +96,28 @@ export const TaskBoardPage: FC = () => {
     }))
   }
 
+  const isModalHandler = () => {
+    setIsModal(!isModal);
+  };
+
+  const addNewTodo = (titleTodo: string) => {
+    boards[0].items.push({
+      id: Date.now(),
+      title: titleTodo,
+    })
+
+    setBoards(boards);
+  }
+
   return (
     <div className='task-board-page'>
       <div className='task-board-page__buttons'>
-        <button className='task-board-page__button'>Add new todo</button>
+        <button 
+          className='task-board-page__button'
+          onClick={isModalHandler}
+        >
+          Add new todo
+        </button>
 
         <button
           className='task-board-page__button'
@@ -144,6 +154,15 @@ export const TaskBoardPage: FC = () => {
           </div>
         )}
       </div>
+
+      {isModal &&
+        <Modal 
+          title='Add a new todo' 
+          isModalHandler={isModalHandler} 
+          boards={boards}
+          addNewTodo={addNewTodo}
+        />
+      }
     </div>
   );
 };
