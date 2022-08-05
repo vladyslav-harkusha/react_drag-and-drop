@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import { Modal } from '../components/Modal';
 import '../styles/TaskBoardPage.scss';
 import { Board, Item } from '../models';
+import { title } from 'process';
 
 export const TaskBoardPage: FC = () => {
   const [boards, setBoards] = useState<Board[]>([
@@ -101,10 +102,14 @@ export const TaskBoardPage: FC = () => {
   };
 
   const addNewTodo = (titleTodo: string) => {
-    boards[0].items.push({
-      id: Date.now(),
-      title: titleTodo,
-    })
+    if (titleTodo.trim()) {
+      boards[0].items.push({
+        id: Date.now(),
+        title: titleTodo,
+      })
+    } else {
+      window.alert('Enter valid title');
+    }
 
     setBoards(boards);
   }
