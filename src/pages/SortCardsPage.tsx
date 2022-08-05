@@ -10,10 +10,10 @@ interface Card {
 
 export const SortCardsPage: FC = () => {
   const [cardList, setCardList] = useState<Card[]>([
-    {id: 1, order: 3, text: 'Card 3', color: 'green'},
-    {id: 2, order: 1, text: 'Card 1', color: 'yellow'},
-    {id: 3, order: 2, text: 'Card 2', color: 'yellowgreen'},
-    {id: 4, order: 4, text: 'Card 4', color: 'darkgreen'},
+    {id: 1, order: 3, text: 'Card 3', color: 'green75'},
+    { id: 2, order: 1, text: 'Card 1', color: 'green25'},
+    { id: 3, order: 2, text: 'Card 2', color: 'green50'},
+    { id: 4, order: 4, text: 'Card 4', color: 'green100'},
   ]);
   const [currentCard, setCurrentCard] = useState<Card>({id: 500, order: 500, text: '', color: ''});
 
@@ -23,14 +23,14 @@ export const SortCardsPage: FC = () => {
 
   const dragEndHandler = (event: React.DragEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
-    target.style.background = 'lightcyan';
+    target.style.boxShadow = '0 0 10px 3px black';
   };
 
   const dragOverHandler = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
 
     const target = event.target as HTMLDivElement;
-    target.style.background = 'lightblue';
+    target.style.boxShadow = 'inset 0 0 10px 3px black';
   };
 
   const dropHandler = (event: React.DragEvent<HTMLDivElement>, card: Card) => {
@@ -49,7 +49,7 @@ export const SortCardsPage: FC = () => {
     }));
 
     const target = event.target as HTMLDivElement;
-    target.style.background = 'lightcyan';
+    target.style.boxShadow = '0 0 10px 3px black';
   };
 
   return (

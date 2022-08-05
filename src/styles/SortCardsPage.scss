@@ -8,6 +8,7 @@
     font-style: italic;
     font-weight: 400;
     font-size: 20px;
+    text-decoration: underline;
   }
 }
 
@@ -27,25 +28,39 @@
   background-color: lightcyan;
   border: 5px solid teal;
   border-radius: 12px;
+  box-shadow: 0 0 10px 3px black;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
   cursor: grab;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 2px rgb(90, 89, 89);
+  font-size: 20px;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
 }
 
-.yellow {
-  border-color: violet;
+.green25 {
+  border-color: rgb(0, 64, 100);
+  background-color: rgba(0, 63, 100, 0.3);
 }
 
-.yellowgreen {
-  border-color: blueviolet;
+.green50 {
+  border-color: rgb(0, 128, 100);
+  background-color: rgba(0, 128, 100, 0.3);
 }
 
-.green {
-  border-color: blue;
+.green75 {
+  border-color: rgb(0, 192, 100);
+  background-color: rgba(0, 192, 100, 0.3);
 }
 
-.darkgreen {
-  border-color: darkblue;
+.green100 {
+  border-color: rgb(0, 255, 100);
+  background-color: rgba(0, 255, 100, 0.3);
 }
